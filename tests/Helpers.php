@@ -1,5 +1,5 @@
 <?php
 
-namespace Tests;
+namespace SustainableHustle\Astrel\Tests;
 
 // ...

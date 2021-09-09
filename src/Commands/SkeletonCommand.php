@@ -1,6 +1,6 @@
 <?php
 
-namespace Lorisleiva\Skeleton\Commands;
+namespace SustainableHustle\Astrel\Commands;
 
 use Illuminate\Console\Command;
 

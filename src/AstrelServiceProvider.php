@@ -1,11 +1,11 @@
 <?php
 
-namespace Lorisleiva\Skeleton;
+namespace SustainableHustle\Astrel;
 
 use Illuminate\Support\ServiceProvider;
-use Lorisleiva\Skeleton\Commands\SkeletonCommand;
+use SustainableHustle\Astrel\Commands\SkeletonCommand;
 
-class SkeletonServiceProvider extends ServiceProvider
+class AstrelServiceProvider extends ServiceProvider
 {
     public function boot()
     {
@@ -19,15 +19,15 @@ class SkeletonServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/skeleton.php', 'skeleton');
+        $this->mergeConfigFrom(__DIR__ . '/../config/astrel.php', 'astrel');
 
-        $this->app->singleton(Skeleton::class);
+        $this->app->singleton(AstrelManager::class);
     }
 
     protected function publishConfig()
     {
         $this->publishes([
-            __DIR__ . '/../config/skeleton.php' => config_path('skeleton.php'),
-        ], ['config', 'skeleton-config']);
+            __DIR__ . '/../config/astrel.php' => config_path('astrel.php'),
+        ], ['config', 'astrel-config']);
     }
 }

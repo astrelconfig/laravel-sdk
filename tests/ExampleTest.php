@@ -1,16 +1,7 @@
 <?php
 
-use Lorisleiva\Skeleton\Skeleton;
+use SustainableHustle\Astrel\Facades\Astrel;
 
-it('resolves from the container', function () {
-    $skeleton = app(Skeleton::class);
-
-    expect($skeleton instanceof Skeleton)->toBeTrue();
-});
-
-it('resolves as a singleton', function () {
-    $skeletonA = app(Skeleton::class);
-    $skeletonB = app(Skeleton::class);
-
-    expect($skeletonA)->toBe($skeletonB);
+it('dummy test', function () {
+    dd(Astrel::all());
 });

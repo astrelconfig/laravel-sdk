@@ -1,9 +1,9 @@
 {
-    "name": "lorisleiva/skeleton",
+    "name": "lorisleiva/astrel",
     "description": "TODO",
     "keywords": [
         "laravel",
-        "skeleton"
+        "astrel"
     ],
     "homepage": "https://github.com/lorisleiva/skeleton",
     "license": "MIT",
@@ -17,21 +17,22 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
+        "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
         "illuminate/contracts": "^7.0|^8.0"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
-        "pestphp/pest": "^0.3.14",
+        "pestphp/pest": "^1.0",
         "phpunit/phpunit": "^9.3.10"
     },
     "autoload": {
         "psr-4": {
-            "Lorisleiva\\Skeleton\\": "src"
+            "SustainableHustle\\Astrel\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Lorisleiva\\Skeleton\\Tests\\": "tests"
+            "SustainableHustle\\Astrel\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -44,19 +45,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Lorisleiva\\Skeleton\\SkeletonServiceProvider"
+                "SustainableHustle\\Astrel\\AstrelServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "Lorisleiva\\Skeleton\\Facades\\Skeleton"
+                "Astrel": "SustainableHustle\\Astrel\\Facades\\Astrel"
             }
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "funding": [
-        {
-            "type": "github",
-            "url": "https://github.com/sponsors/lorisleiva"
-        }
-    ]
+    "prefer-stable": true
 }
