@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Http;
 
 class AstrelManager
 {
+    public function get(string $slug, mixed $default = null): mixed
+    {
+        return $this->all()[$slug]['value'] ?? $default;
+    }
+
     public function all(): array
     {
         return Cache::remember('sustainable-hustle-astrel', $this->getCacheLifetime(), function () {
