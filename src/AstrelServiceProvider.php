@@ -3,7 +3,6 @@
 namespace SustainableHustle\Astrel;
 
 use Illuminate\Support\ServiceProvider;
-use SustainableHustle\Astrel\Commands\SkeletonCommand;
 
 class AstrelServiceProvider extends ServiceProvider
 {
@@ -11,9 +10,6 @@ class AstrelServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishConfig();
-            $this->commands([
-                SkeletonCommand::class,
-            ]);
         }
     }
 

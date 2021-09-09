@@ -2,8 +2,10 @@
 
 namespace SustainableHustle\Astrel;
 
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Route as Router;
 
 class AstrelManager
 {
@@ -21,6 +23,13 @@ class AstrelManager
                 ->get('all')
                 ->throw()
                 ->json();
+        });
+    }
+
+    public function webhookRoute(string $uri = null): Route
+    {
+        return Router::post($uri ?? config('astrel.webhook.uri'), function () {
+            Cache::forget('sustainable-hustle-astrel');
         });
     }
 
