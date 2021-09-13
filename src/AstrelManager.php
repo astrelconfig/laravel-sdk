@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route as Router;
 
 class AstrelManager
 {
-    public function get(string $slug, mixed $default = null): mixed
+    public function get(string $slug, mixed $default = null)
     {
         return $this->all()[$slug]['value'] ?? $default;
     }
