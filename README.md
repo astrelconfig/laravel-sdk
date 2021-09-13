@@ -4,7 +4,7 @@
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/sustainable-hustle/astrel-laravel/Tests?label=tests)](https://github.com/sustainable-hustle/astrel-laravel/actions?query=workflow%3ATests+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/sustainable-hustle/astrel-laravel.svg)](https://packagist.org/packages/sustainable-hustle/astrel-laravel)
 
-A Laravel client to integrate [Astrel](https://astrel.io) in your application.
+Integrate [Astrel](https://astrel.io) to your Laravel applications.
 
 [Astrel](https://astrel.io) is a remote config orchestration application that enables you to change anything in your apps without touching your code.
 

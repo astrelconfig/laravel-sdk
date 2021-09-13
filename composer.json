@@ -1,11 +1,12 @@
 {
-    "name": "lorisleiva/astrel",
-    "description": "TODO",
+    "name": "sustainable-hustle/astrel-laravel",
+    "description": "Integrate Astrel to your Laravel applications.",
     "keywords": [
         "laravel",
-        "astrel"
+        "astrel",
+        "remote config"
     ],
-    "homepage": "https://github.com/lorisleiva/skeleton",
+    "homepage": "https://github.com/sustainable-hustle/astrel-laravel",
     "license": "MIT",
     "authors": [
         {
