@@ -9,7 +9,7 @@ it('returns an array of all aspects from astrel', function () {
         astrelUrl('all') => Http::response([
             'app-name' => ['slug' => 'app-name', 'value' => 'Astrel'],
             'app-headline' => ['slug' => 'app-headline', 'value' => 'Remote Config Orchestration'],
-        ])
+        ]),
     ]);
 
     // When we access all aspects via the facade.

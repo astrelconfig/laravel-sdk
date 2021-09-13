@@ -9,7 +9,7 @@ it('caches any subsequent call to Astrel::all()', function () {
     Http::fake([
         astrelUrl('all') => Http::sequence()
             ->push(['app-name' => ['slug' => 'app-name', 'value' => 'Foo']])
-            ->push(['app-name' => ['slug' => 'app-name', 'value' => 'bar']])
+            ->push(['app-name' => ['slug' => 'app-name', 'value' => 'bar']]),
     ]);
 
     // When we access all aspects via the facade twice.

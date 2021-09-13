@@ -9,7 +9,7 @@ it('returns an individual aspect from astrel', function () {
         astrelUrl('all') => Http::response([
             'app-name' => ['slug' => 'app-name', 'value' => 'Astrel'],
             'app-headline' => ['slug' => 'app-headline', 'value' => 'Remote Config Orchestration'],
-        ])
+        ]),
     ]);
 
     // When we access the `app-name` aspect.
@@ -25,7 +25,7 @@ it('returns a default value when an aspect does not exist', function () {
         astrelUrl('all') => Http::response([
             'app-name' => ['slug' => 'app-name', 'value' => 'Astrel'],
             'app-headline' => ['slug' => 'app-headline', 'value' => 'Remote Config Orchestration'],
-        ])
+        ]),
     ]);
 
     // When we access a missing `app-discount-code` aspect with a default value.
