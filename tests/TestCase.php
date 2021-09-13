@@ -16,7 +16,6 @@ class TestCase extends Orchestra
 
     public function getEnvironmentSetUp($app)
     {
-        $app->config['astrel.base_url'] = 'http://astrel.test/api';
-        $app->config['astrel.api_key'] = 'sxjTgAJAxkT2TNyKf9vaaFI0L07AyItM5o3iikkS';
+        //
     }
 }
