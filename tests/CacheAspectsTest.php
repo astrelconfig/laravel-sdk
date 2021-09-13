@@ -27,7 +27,7 @@ it('flushes the cache', function () {
     Http::fake([
         astrelUrl('all') => Http::sequence()
             ->push(['app-name' => ['slug' => 'app-name', 'value' => 'Foo']])
-            ->push(['app-name' => ['slug' => 'app-name', 'value' => 'Bar']])
+            ->push(['app-name' => ['slug' => 'app-name', 'value' => 'Bar']]),
     ]);
 
     // When we access all aspects via the facade twice whilst
@@ -47,7 +47,7 @@ it('refetches all aspects after flushing the cache', function () {
     Http::fake([
         astrelUrl('all') => Http::sequence()
             ->push(['app-name' => ['slug' => 'app-name', 'value' => 'Foo']])
-            ->push(['app-name' => ['slug' => 'app-name', 'value' => 'Bar']])
+            ->push(['app-name' => ['slug' => 'app-name', 'value' => 'Bar']]),
     ]);
 
     // When we access all aspects via the facade one and then refetch them.

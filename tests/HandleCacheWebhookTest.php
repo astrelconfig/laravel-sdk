@@ -9,7 +9,7 @@ it('refetches all aspects when receiving the webhook from astrel', function () {
     Http::fake([
         astrelUrl('all') => Http::sequence()
             ->push(['app-name' => ['slug' => 'app-name', 'value' => 'Foo']])
-            ->push(['app-name' => ['slug' => 'app-name', 'value' => 'Bar']])
+            ->push(['app-name' => ['slug' => 'app-name', 'value' => 'Bar']]),
     ]);
 
     // And we have the webhook route registered.
