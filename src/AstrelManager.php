@@ -26,10 +26,22 @@ class AstrelManager
         });
     }
 
+    public function flush(): void
+    {
+        Cache::forget('sustainable-hustle-astrel');
+    }
+
+    public function refetch(): array
+    {
+        $this->flush();
+
+        return $this->all();
+    }
+
     public function webhookRoute(string $uri = null): Route
     {
         return Router::post($uri ?? config('astrel.webhook.uri'), function () {
-            Cache::forget('sustainable-hustle-astrel');
+            $this->refetch();
         });
     }
 

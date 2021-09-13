@@ -11,6 +11,8 @@ use SustainableHustle\Astrel\AstrelManager;
  *
  * @method static mixed get(string $slug, mixed $default = null)
  * @method static array all()
+ * @method static void flush()
+ * @method static array refetch()
  * @method static Route webhookRoute(string $uri = null)
  */
 class Astrel extends Facade
