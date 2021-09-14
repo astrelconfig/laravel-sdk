@@ -35,9 +35,17 @@ This package provides a facade you can use to retrieve one or many aspects. An a
 ``` php
 use SustainableHustle\Astrel\Facades\Astrel;
 
-Astrel::all();                       // Returns all aspects.
-Astrel::get('slug')                  // Returns the value of an aspect by giving its slug.
-Astrel::get('slug', 'default value') // Returns the default value if the given aspect has no value.
+Astrel::all();                        // Returns all aspects.
+Astrel::get('slug');                  // Returns the value of an aspect by giving its slug.
+Astrel::get('slug', 'default value'); // Returns the default value if the given aspect has no value.
+```
+
+Alternatively, you may use the `astrel` helper method to access the Astrel manager or to access a value directly.
+
+``` php
+astrel()->all();                 // Equivalent to Astrel::all();
+astrel('slug');                  // Equivalent to Astrel::get('slug');
+astrel('slug', 'default value'); // Equivalent to Astrel::get('slug', 'default value');
 ```
 
 ## Caching
