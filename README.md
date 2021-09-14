@@ -74,9 +74,21 @@ This package provides a helper method `webhookRoute` on the `Astrel` facade that
 ``` php
 use SustainableHustle\Astrel\Facades\Astrel;
 
-Astrel::webhookRoute()                  // Register a route that calls `Astrel::refetch()` when triggered.
-Astrel::webhookRoute('webhooks/astrel') // Provide a custom path to that route.
-Astrel::webhookRoute('webhooks/astrel') // This method returns a Route object so you can chain anything you want.
+Astrel::webhookRoute()                 // Register a route that calls `Astrel::refetch()` when triggered.
+Astrel::webhookRoute('astrel/webhook') // Provide a custom path to that route.
+Astrel::webhookRoute('astrel/webhook') // This method returns a Route object so you can chain anything you want.
     ->name('webhooks.astrel')
     ->middleware('web')
+```
+
+Additionally, if you're using the default `web` middleware group, make sure to disable CSRF verification for that route in the `VerifyCsrfToken` middleware.
+
+```diff
+class VerifyCsrfToken extends Middleware
+{
+    protected $except = [
+-       //
++      '/astrel/webhook',
+    ];
+}
 ```
