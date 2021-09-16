@@ -21,3 +21,16 @@ it('returns an array of all aspects from astrel', function () {
         'app-headline' => ['slug' => 'app-headline', 'value' => 'Remote Config Orchestration'],
     ]);
 });
+
+it('returns an empty array when the response is empty', function () {
+    // Given a call to the `/all` endpoint would return an empty response.
+    Http::fake([
+        astrelUrl('all') => Http::response(),
+    ]);
+
+    // When we access all aspects via the facade.
+    $aspects = Astrel::all();
+
+    // Then we get en empty array.
+    expect($aspects)->toEqual([]);
+});

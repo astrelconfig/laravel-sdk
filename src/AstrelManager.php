@@ -22,7 +22,7 @@ class AstrelManager
                 ->withToken($this->getApiKey())
                 ->get('all')
                 ->throw()
-                ->json();
+                ->json() ?? [];
         });
     }
 
