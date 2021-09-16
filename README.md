@@ -16,10 +16,26 @@ Install this package via composer.
 composer require sustainable-hustle/astrel-laravel
 ```
 
-And add your Astrel API key in your `.env` file.
+Add your Astrel API key in your `.env` file.
 
 ```bash
 ASTREL_API_KEY="sxjTgBJAxkT2TNyKf9vabFI0L07AyItM5o3iiloS"
+```
+
+Finally, [listen for Astrel's webhooks](#clear-the-cache-when-receiving-a-webhook) to clear the cache.
+
+```php
+// routes/web.php
+use SustainableHustle\Astrel\Facades\Astrel;
+Astrel::webhookRoute('astrel/webhook');
+
+// Make sure CSRF verification is disabled on that route.
+class VerifyCsrfToken extends Middleware
+{
+    protected $except = [
+        '/astrel/webhook',
+    ];
+}
 ```
 
 Optionally, publish the `astrel` config file.
@@ -74,11 +90,11 @@ This package provides a helper method `webhookRoute` on the `Astrel` facade that
 ``` php
 use SustainableHustle\Astrel\Facades\Astrel;
 
-Astrel::webhookRoute()                 // Register a route that calls `Astrel::refetch()` when triggered.
-Astrel::webhookRoute('astrel/webhook') // Provide a custom path to that route.
-Astrel::webhookRoute('astrel/webhook') // This method returns a Route object so you can chain anything you want.
+Astrel::webhookRoute();                 // Register a route that calls `Astrel::refetch()` when triggered.
+Astrel::webhookRoute('astrel/webhook'); // Provide a custom path to that route.
+Astrel::webhookRoute('astrel/webhook')  // This method returns a Route object so you can chain anything you want.
     ->name('webhooks.astrel')
-    ->middleware('web')
+    ->middleware('web');
 ```
 
 Additionally, if you're using the default `web` middleware group, make sure to disable CSRF verification for that route in the `VerifyCsrfToken` middleware.
