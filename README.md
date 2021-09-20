@@ -8,6 +8,8 @@ Integrate [Astrel](https://astrel.io) to your Laravel applications.
 
 [Astrel](https://astrel.io) is a remote config orchestration application that enables you to change anything in your apps without touching your code.
 
+🍿 **Are you a visual learner?** [Here a quick video tutorial](https://youtu.be/p6s5ddh8hZI) to help you get started with Astrel and Laravel.
+
 ## Installation
 
 Install this package via composer.
