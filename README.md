@@ -66,6 +66,14 @@ astrel('slug');                  // Equivalent to Astrel::get('slug');
 astrel('slug', 'default value'); // Equivalent to Astrel::get('slug', 'default value');
 ```
 
+Note that if you'd like to fallback to an environment variable you may also use the `astrel_env` helper function like so.
+
+```php
+astrel_env('my-slug');                           // Equivalent to astrel('my-slug', env('MY_SLUG'));
+astrel_env('my-slug', 'MY_ENV_SLUG');            // Equivalent to astrel('my-slug', env('MY_ENV_SLUG'));
+astrel_env('my-slug', 'MY_ENV_SLUG', 'default'); // Equivalent to astrel('my-slug', env('MY_ENV_SLUG', 'default'));
+```
+
 ## Caching
 
 This package automatically caches all retrieved aspects. This ensure your application does not make API calls every single time a value from Astrel is required.

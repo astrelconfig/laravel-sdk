@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Env;
 use Illuminate\Support\Facades\Http;
 use SustainableHustle\Astrel\AstrelManager;
 use SustainableHustle\Astrel\Facades\Astrel;
@@ -53,4 +54,26 @@ it('provides an astrel helper method', function () {
 
     // And it returns the AstrelManager when no arguments are given.
     expect(astrel())->toBe(app(AstrelManager::class));
+});
+
+it('provides an astrel_env helper method that fallback to environment variables', function () {
+    // Given a call to the `/all` endpoint would return the following aspects.
+    Http::fake([
+        astrelUrl('all') => Http::response([
+            'from-astrel' => ['slug' => 'from-astrel', 'value' => 'Value from Astrel'],
+        ]),
+    ]);
+
+    Env::getRepository()->set('FROM_ENV', 'Value from .env');
+
+    // Then we can access a value using the `astrel` helper method.
+    expect(astrel_env('from-astrel'))->toBe('Value from Astrel');
+
+    // And it uses the env variables if not found on astrel.
+    expect(astrel_env('from-env', 'FROM_ENV'))->toBe('Value from .env');
+    expect(astrel_env('from-env'))->toBe('Value from .env');
+
+    // And it falls back to a given value otherwise.
+    expect(astrel_env('from-fallback', 'FROM_FALLBACK', 'Value from fallback'))->toBe('Value from fallback');
+    expect(astrel_env('from-fallback', null, 'Value from fallback'))->toBe('Value from fallback');
 });
